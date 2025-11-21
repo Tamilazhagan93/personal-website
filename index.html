@@ -139,6 +139,49 @@
       font-size: 15px;
       border: 1px solid rgba(255,255,255,0.1);
     }
+    .features-grid {
+  max-width: 1100px;
+  margin: 60px auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+}
+
+.feature-card {
+  background: #ffffff;
+  padding: 28px;
+  border-radius: 18px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.feature-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: #eef4ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 22px;
+}
+
+.feature-card h3 {
+  margin: 0;
+  color: #1b3b70;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.feature-card p {
+  color: #54657e;
+  margin-top: 6px;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
   </style>
 </head>
 <body>
@@ -181,6 +224,45 @@
   <li>Strong experience in troubleshooting, production issue resolution, impact analysis, and delivering stable releases.</li>
   <li>Adept at collaborating with BA, QA, product, and engineering teams to ensure smooth deployment and continuous improvement.</li>
 </ul>
+<section id="highlights">
+  <h2 style="text-align:center; color:#0e4b8f;">Key Highlights</h2>
+
+  <div class="features-grid">
+
+    <div class="feature-card">
+      <div class="feature-icon">💻</div>
+      <div>
+        <h3>3+ Years Experience</h3>
+        <p>Extensive experience in ERP development, automation, and enterprise solutions.</p>
+      </div>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon">⚙️</div>
+      <div>
+        <h3>Backend Engineering</h3>
+        <p>Expertise in C#.NET, Web API, WCF, and scalable backend architecture.</p>
+      </div>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon">🗄️</div>
+      <div>
+        <h3>Database Expertise</h3>
+        <p>Advanced SQL Server optimization, stored procedures, and query tuning.</p>
+      </div>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon">⚡</div>
+      <div>
+        <h3>Performance Optimization</h3>
+        <p>Improved system performance and reduced processing time through automation.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
 
   </section>
 
