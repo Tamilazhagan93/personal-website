@@ -1,0 +1,252 @@
+<!--
+README / Deployment notes
+
+Files included in this single-file project:
+- index.html  (this file)
+
+Notes:
+1) The hero/preview image in the design references a local path you uploaded during the conversation. The path used is:
+   /mnt/data/554691e6-40e3-4953-825a-f815c763c753.png
+   When you move the project to GitHub, replace that path with a relative path (eg. ./assets/hero.png) or upload the image to the repo and keep the same filename.
+
+2) To deploy on Netlify (quick):
+   - Create a GitHub repo (eg. personal-portfolio).
+   - Add index.html and any assets (images, resume.pdf) to the repo and push to GitHub.
+   - On Netlify, choose "New site from Git" and connect the repo. Set the build command empty (static site) and publish directory to root (/).
+
+3) If you want the project split into multiple files (assets/ folder, separate CSS/JS), ask me and I will provide a zipped structure.
+
+Replace the placeholder resume link (resume.pdf) with your real resume file in the repo.
+-->
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Tamilazhagan T — Software Engineer</title>
+  <meta name="description" content="Portfolio of Tamilazhagan T — Software Engineer">
+  <style>
+    :root{
+      --bg1: #6a11cb; /* purple */
+      --bg2: #2575fc; /* blue */
+      --glass: rgba(255,255,255,0.06);
+      --card: rgba(255,255,255,0.06);
+      --accent: rgba(255,255,255,0.9);
+      --muted: rgba(255,255,255,0.75);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0}
+    body{
+      color:var(--accent);
+      background:linear-gradient(135deg,var(--bg1),var(--bg2));
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.4;
+    }
+    .container{max-width:1100px;margin:0 auto;padding:32px}
+
+    header{display:flex;align-items:center;justify-content:space-between;padding:16px 0}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:56px;height:56px;border-radius:10px;background:linear-gradient(135deg,rgba(255,255,255,0.15),rgba(255,255,255,0.04));display:flex;align-items:center;justify-content:center;font-weight:700;font-size:18px}
+    h1{margin:0;font-size:20px}
+    .title{font-size:14px;color:var(--muted)}
+
+    main{display:grid;grid-template-columns:1fr 420px;gap:28px;margin-top:18px}
+
+    /* Left column */
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));border-radius:14px;padding:22px;box-shadow:0 8px 30px rgba(0,0,0,0.18);}
+    .hero{display:flex;gap:18px;align-items:center}
+    .hero .intro{flex:1}
+    .name{font-size:30px;margin:0 0 6px 0}
+    .role{margin:0;color:var(--muted)}
+    .cta{margin-top:14px;display:flex;gap:10px}
+    .btn{background:rgba(255,255,255,0.12);border:none;padding:10px 14px;border-radius:10px;color:var(--accent);cursor:pointer;font-weight:600}
+    .btn.primary{background:linear-gradient(90deg, rgba(255,255,255,0.16), rgba(255,255,255,0.08));backdrop-filter:blur(6px)}
+
+    .profile-img{width:120px;height:120px;border-radius:12px;overflow:hidden;flex-shrink:0;border:1px solid rgba(255,255,255,0.06)}
+    .profile-img img{width:100%;height:100%;object-fit:cover;display:block}
+
+    section{margin-top:18px}
+    h2{font-size:16px;margin:0 0 12px 0}
+    p.lead{color:var(--muted);margin:0}
+
+    .skills{display:flex;flex-wrap:wrap;gap:8px}
+    .skill{background:rgba(255,255,255,0.04);padding:8px 10px;border-radius:999px;font-size:13px}
+
+    .projects{display:grid;grid-template-columns:1fr;gap:12px}
+    .project{background:rgba(0,0,0,0.14);padding:12px;border-radius:10px}
+    .project h3{margin:0;font-size:14px}
+    .project p{margin:6px 0 0 0;color:var(--muted);font-size:13px}
+
+    .meta{display:flex;gap:12px;margin-top:10px}
+    .meta a{color:var(--accent);text-decoration:none;font-weight:600}
+
+    /* Right column */
+    .aside .card{padding:16px}
+    .stat{display:flex;align-items:center;justify-content:space-between;padding:12px;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));}
+    .stat h3{margin:0;font-size:18px}
+    .stat p{margin:0;color:var(--muted)}
+
+    .contact-form{display:flex;flex-direction:column;gap:10px}
+    .input,textarea{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:10px;border-radius:8px;color:var(--accent)}
+    textarea{min-height:100px}
+    .socials{display:flex;gap:10px;margin-top:12px}
+    .chip{padding:8px 10px;border-radius:8px;background:rgba(255,255,255,0.04);font-weight:600}
+
+    footer{margin-top:26px;color:var(--muted);font-size:13px;text-align:center}
+
+    /* Responsive */
+    @media (max-width:980px){
+      main{grid-template-columns:1fr}
+      .profile-img{display:none}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">TT</div>
+        <div>
+          <h1>Tamilazhagan T</h1>
+          <div class="title">Software Engineer</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#projects" style="color:rgba(255,255,255,0.9);text-decoration:none;margin-right:12px">Projects</a>
+        <a href="#skills" style="color:rgba(255,255,255,0.85);text-decoration:none;margin-right:12px">Skills</a>
+        <a href="#contact" style="color:rgba(255,255,255,0.85);text-decoration:none">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <!-- LEFT COLUMN -->
+      <div>
+        <div class="card">
+          <div class="hero">
+            <div class="intro">
+              <h2 class="name">Hi, I'm Tamilazhagan T</h2>
+              <div class="role">Software Engineer — building scalable web apps and clean UIs</div>
+
+              <div class="cta">
+                <a class="btn primary" href="#projects">See projects</a>
+                <a class="btn" href="resume.pdf" download>Download resume</a>
+              </div>
+
+              <section id="about">
+                <h2>About</h2>
+                <p class="lead">I am a Software Engineer with experience building web applications (C#, JavaScript, SQL) and working with ERP systems. I enjoy creating clean user experiences and improving performance.</p>
+              </section>
+            </div>
+
+            <div class="profile-img" aria-hidden="true">
+              <!-- Using the uploaded file path as the image source. Replace with a repo-relative path after upload. -->
+              
+            </div>
+          </div>
+
+          <section id="skills">
+            <h2>Skills</h2>
+            <div class="skills">
+              <div class="skill">C#</div>
+              <div class="skill">ASP.NET / MVC</div>
+              <div class="skill">JavaScript</div>
+              <div class="skill">HTML & CSS</div>
+              <div class="skill">SQL Server</div>
+              <div class="skill">Git</div>
+              <div class="skill">Netlify</div>
+              <div class="skill">Docker (basics)</div>
+            </div>
+          </section>
+
+          <section id="projects">
+            <h2>Projects</h2>
+            <div class="projects">
+              <div class="project">
+                <h3>ERP Supplier Exchange — Demo</h3>
+                <p>Worked on supplier exchange tooling, stored procedures, and performance fixes.</p>
+              </div>
+              <div class="project">
+                <h3>Personal Portfolio</h3>
+                <p>This portfolio website — static site, Netlify deploy-ready.</p>
+              </div>
+            </div>
+
+            <div style="margin-top:12px" class="meta">
+              <a href="#contact">Contact</a>
+              <a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
+              <a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
+            </div>
+          </section>
+
+        </div>
+
+        <section style="margin-top:14px" class="card">
+          <h2>Achievements</h2>
+          <ul style="margin:0;padding-left:18px;color:var(--muted)">
+            <li>Improved SQL stored procedure performance in production</li>
+            <li>Built complete front-end modules for ERP sales flow</li>
+            <li>Deployed multiple projects on Netlify and GitHub</li>
+          </ul>
+        </section>
+
+      </div>
+
+      <!-- RIGHT COLUMN / ASIDE -->
+      <aside class="aside">
+        <div class="card">
+          <div class="stat">
+            <div>
+              <h3>5+</h3>
+              <p>Years experience</p>
+            </div>
+            <div>
+              <h3>20+</h3>
+              <p>Projects</p>
+            </div>
+          </div>
+
+          <section style="margin-top:12px">
+            <h2>Contact</h2>
+            <form id="contactForm" class="contact-form" onsubmit="sendMessage(event)">
+              <input class="input" id="name" placeholder="Your name" required>
+              <input class="input" id="email" type="email" placeholder="Your email" required>
+              <textarea id="message" placeholder="Message" required></textarea>
+              <div style="display:flex;gap:8px">
+                <button class="btn primary" type="submit">Send</button>
+                <a class="btn" href="mailto:your.email@example.com">Email me</a>
+              </div>
+            </form>
+
+            <div class="socials">
+              <a class="chip" href="https://github.com/" target="_blank">GitHub</a>
+              <a class="chip" href="https://www.linkedin.com/" target="_blank">LinkedIn</a>
+            </div>
+          </section>
+        </div>
+
+        <footer>
+          © <span id="year"></span> Tamilazhagan T — Built with care
+        </footer>
+      </aside>
+    </main>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    function sendMessage(e){
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+      // Simple client-side handling: open mail client. For production use a server or Netlify Forms.
+      const subject = encodeURIComponent('Portfolio message from ' + name);
+      const body = encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\n\n' + message);
+      window.location.href = 'mailto:your.email@example.com?subject=' + subject + '&body=' + body;
+    }
+  </script>
+</body>
+</html>
